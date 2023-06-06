@@ -1,7 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 import cn from "clsx";
 import { Item, ItemPhoto } from "../types/dropdown.interface";
-import { items } from "../db/data";
 
 interface IProps {
   color?: string;
@@ -30,21 +29,21 @@ export const Dropdown: FC<IProps> = ({
 
   // ассинхронная функция запроса на сервер для фильтрации данных
   // в данном примере нигде не используется
-  const filterAsyncItems = async (value: string) => {
-    // проверка чтобы не ушел запрос на сервер с пустымы данными
-    if (value === "") {
-      setFilteredItems(items);
-      return;
-    }
+  // const filterAsyncItems = async (value: string) => {
+  //   // проверка чтобы не ушел запрос на сервер с пустымы данными
+  //   if (value === "") {
+  //     setFilteredItems(data);
+  //     return;
+  //   }
 
-    try {
-      const response = await fetch(`/../..?value=${value}`);
-      const data = await response.json();
-      setFilteredItems(data);
-    } catch (error) {
-      console.error("Errors:", error);
-    }
-  };
+  //   try {
+  //     const response = await fetch(`/../..?value=${value}`);
+  //     const data = await response.json();
+  //     setFilteredItems(data);
+  //   } catch (error) {
+  //     console.error("Errors:", error);
+  //   }
+  // };
 
   // фильтрация локальных данных
   const filterItems = (term: string) => {
